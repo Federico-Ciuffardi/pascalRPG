@@ -1,2 +1,2 @@
-# pascalrpg
+# pascalRPG
 a simple pascal rpg game
