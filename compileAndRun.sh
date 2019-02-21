@@ -1,3 +1,3 @@
 #!/bin/bash
 fpc pascalRPG.pas
-./pascalRPG
+./run.sh

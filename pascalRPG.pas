@@ -33,10 +33,9 @@ PROCEDURE _write_(j1:integer;s:string;j2:integer);
     write(s);
     for i:= 1 to(j2-length(s)) do
     write(' ')
-    END;//espacio(j1 veces)string espacio(j-largo de la string(se ajusta a el largo))
+    END;//space(j1 times)string space (j-length of the string))
 
-PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun room)!!!!!!!!!!!!
-
+PROCEDURE DISPLAY;
   //-----------------------------START-UP Menus-------------------------------//
   PROCEDURE display_logo;
     BEGIN
@@ -47,10 +46,10 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
-    writeln('    ____                                         ___                  ____        ____     ____        ');
-    writeln('   /\  _`\                                      /\_ \                /\  _`\     /\  _`\  /\  _`\      ');
-    writeln('   \ \ \L\ \   __       ____    ___      __     \//\ \               \ \ \L\ \   \ \ \L\ \\ \ \L\_\    ');
-    writeln('    \ \ ,__/ /,__`\    /,,__\  /,___\  /,__`\     \ \ \               \ \ ,  /    \ \ ,__/ \ \ \L_L    ');
+    writeln('    _____                                        ___                  _____       _____    _____      ');
+    writeln('   /\  __`\                                     /\_ \                /\  _ `\    /\  _ `\ /\  _ `\     ');
+    writeln('   \ \ \L\ \   __       ____    ___      __     \//\ \               \ \ \L\ \   \ \ \L\ \\ \ \ \_\    ');
+    writeln('    \ \ ,__/ /,__`\    /,,__\  /,___\  /,__`\     \ \ \               \ \ ,  /    \ \ ,__/ \ \ \L_ \   ');
     writeln('     \ \ \/ /\ \L\.\_ /\__, `\/\ \__/ /\ \L\.\_    \_\ \_              \ \ \\ \    \ \ \/   \ \ \/, \  ');
     writeln('      \ \_\ \ \__/.\_\\/\____/\ \____\\ \__/.\_\   /\____\              \ \_\ \_\   \ \_\    \ \____/  ');
     writeln('       \/_/  \/__/\/_/ \/___/  \/____/ \/__/\/_/   \/____/               \/_/\/ /    \/_/     \/___/   ');
@@ -93,7 +92,6 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
 
   //--------------------------------HUD stuff---------------------------------//
   PROCEDURE display_hud;
-
     PROCEDURE display_hud_main;
       BEGIN
       If p.hp< p.hp_max*0.2 THEN TextColor(lightred)else TextColor(LightBlue);//llow hp
@@ -126,7 +124,7 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
   PROCEDURE display_enemy_stats;
     BEGIN
     If e.hp< e.hp_max*0.2 THEN TextColor(lightred)else TextColor(LightBlue);//Low hp
-    writeln('-------------------------------------------------------------------------------------------------------');
+    writeln('--------------------------------------------------------------------------------------------------------');
     _write_(si1,e.name,sf1);                   writeln();
     _write_(si1,'HP: '+ inttostr(e.hp)+'/'+inttostr(e.hp_max),sf1);writeln();
     _write_(si1,'Atk: '+ inttostr(e.atk),sf1);writeln();
@@ -141,32 +139,41 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
       BEGIN
       display_enemy_stats;
       TextColor(green);
-      writeln('  .   .    .oo689o   .oo689ou.  .     .   . .    .    .     .   .oo689ou.    .     .oo689ou.    .   .   ');
-      writeln('.   .oo689ou.PS96889ou9PS9688oo689ou.  .  .    .   .      .oo6898O9P.oo689ou.oo689ou.PS968.oo689ou.     ');
-      writeln(' . 98O9PS9689PD8O9S9689PD8O98O9PS9689P .   .  .  .   .  98O9PSS99698O9PS9689P8O9PS9689PD8O98O9PS9689P . ');
-      writeln('. S9968D8O88698SD8O886 98S9968D8O88686.  .   .   .    . S9968D`9O8S9968D8O886988D8O8869898S9968D8O886  .');
-      writeln('  `9O89S9889 |&|`S9889  |&|`9O89S9889  .   .  .     .    .`9O89S98``+9+89S988O89S9888|&|9878O89S9889  . ');
-      writeln(' . . ``|&|   |%|  |&|   |%|   ``|&|     .   .   .    .    .   |&|   |%|`|&| ``|&|    |%|   ``|&|.   .  .');
-      writeln('_______|%|___|%|__|%|___|%|_____|%|___________________________|%|___|%|_|%|___|%|____|%|_____|%|________');
-      writeln('  ,,   |%|  .:%:. |%|  .:%:.    |%|  ,,      /     /      ,,  |%|  .:%:.|%|   |%|   .:%:.    |%|     ,, ');
-      writeln(',,    .:%:.   ,, .:%:.     ,,  .:%:.    ,,  /     /   ,,     .:%:.  ,, .:%:.   ,,   ,,      .:%:. ,,    ');
-      writeln('   ,,     ,,    ,,     ,,          ,,      /     / ,,      ,,     ,,          ,,           ,,         ,,');
+      writeln('   .    .          .          .    .       .    .                   .                 .        .       ');
+      writeln('      .      .                 .                             .                       .                .');
+      writeln('                 .                      .                       .         .                 .          ');
+      writeln('      .                  .                 .               .                            .              ');
+      writeln('   .             .    .           .     .           .          .      .        .     .                 ');
+      writeln('  .   .    .oo689o   .oo689ou.  .     .   . .    .    .     .   .oo689ou.    .     .oo689ou.    .   .  ');
+      writeln('.   .oo689ou.PS96889ou9PS9688oo689ou.  .  .    .   .      .oo6898O9P.oo689ou.oo689ou.PS968.oo689ou.    ');
+      writeln(' . 98O9PS9689PD8O9S9689PD8O98O9PS9689P .   .  .  .   .  98O9PSS99698O9PS9689P8O9PS9689PD8O98O9PS9689P .');
+      writeln('. S9968D8O88698SD8O886 98S9968D8O88686.  .   .   .    . S9968D`9O8S9968D8O886988D8O8869898S9968D8O886  ');
+      writeln('  `9O89S9889 |&|`S9889  |&|`9O89S9889  .   .  .     .    .`9O89S98``+9+89S988O89S9888|&|9878O89S9889  .');
+      writeln(' . . ``|&|   |%|  |&|   |%|   ``|&|     .   .   .    .    .   |&|   |%|`|&| ``|&|    |%|   ``|&|.   .  ');
+      writeln('_______|%|___|%|__|%|___|%|_____|%|___________________________|%|___|%|_|%|___|%|____|%|_____|%|_______');
+      writeln('  ,,   |%|  .:%:. |%|  .:%:.    |%|  ,,      /     /      ,,  |%|  .:%:.|%|   |%|   .:%:.    |%|     ,,');
+      writeln(',,    .:%:.   ,, .:%:.     ,,  .:%:.    ,,  /     /   ,,     .:%:.  ,, .:%:.   ,,   ,,      .:%:. ,,   ');
+      writeln('   ,,     ,,    ,,     ,,          ,,      /     / ,,      ,,     ,,          ,,           ,,         ,');
       END;
     1:
       BEGIN
       display_enemy_stats;
       TextColor(brown);
-      writeln('______________________________________________.____________________.______________________________________');
-      writeln('________________________________________.      |                  |       .________________________________                   ');
-      writeln('_________________________________.             |                  |             ._________________________');
-        write('___________________________.                   |                  |           _');TextColor(red);write('( ');TextColor(brown);writeln('_  ._____________________       ');
-        write('                           |                   |                  |           \');TextColor(red);write(' )');TextColor(brown);writeln('/  |                 ');
-      writeln('                           |                   |                  |            ||   |                               ');
-      writeln('                           |                   |__________________|            ||   |                               ');
-      writeln('                           |                .///////||||||||||\\\\\\\\.        ||=  |                               ');
-      writeln('                           |           . //////////||||||||||||\\\\\\\\\\\.         |                                        ');
-      writeln('                           |     .//////////////||||||||||||||||||\\\\\\\\\\\\.     |                              ');
-      writeln('                           |.////////////////||||||||||||||||||||||||\\\\\\\\\\\\\\.|                              ');
+      writeln('_______________________________________________________________________________________________________');
+      writeln('___________________________________________._____________________._____________________________________');
+      writeln('_______________________________________.   |                     |  .__________________________________');
+      writeln('___________________________________.       |                     |      .______________________________');
+      writeln('________________________________.          |                     |         .___________________________');
+      writeln('_____________________________.             |                     |            .________________________');
+      writeln('__________________________.                |                     |              .______________________');
+      writeln('________________________.                  |                     |         _( _  ._____________________');
+      writeln('                        |                  |                     |         \ )/  |                     ');
+      writeln('                        |                  |                     |          ||   |                     ');
+      writeln('                        |                  |_____________________|          ||=  |                     ');
+      writeln('                        |                .///////||||||||||\\\\\\\\.        ||   |                     ');
+      writeln('                        |           . //////////||||||||||||\\\\\\\\\\\.         |                     ');
+      writeln('                        |     .//////////////||||||||||||||||||\\\\\\\\\\\\.     |                     ');
+      writeln('                        |.////////////////||||||||||||||||||||||||\\\\\\\\\\\\\\.|                     ');
         END
         END;
     display_hud
@@ -177,40 +184,40 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
       BEGIN
       display_enemy_stats;
       TextColor(white);
-      writeln('                /                  /             ___,@              \                    \     \   _   | ');
-      writeln('   |  _     |  |           |      /   ((        /  <                 \     |      |       |     |   | _  ');
-      writeln('  _      |    /      _  |        /     ))  ,_  /    \  _,             \         |          \     \       ');
-      writeln('    _      _ /       |   _      |     ((    \`/______\`/               |     _       _      \     \  |   ');
-      writeln('        |   |    |      _   |   |   ,_(*).  |;(o\  /o);|               |   _    |            |     \  _  ');
-      writeln('   |  _    /        |           |    \___ \ \/\   >  /\/               |             |        \     | _   ');
-      writeln('          /       |     |  _    |        \/\   \ __ /                  |     |    _            \    |   | ');
-      writeln('_________|           _          |         \ \___)--(__                 |            _   |       \   |_____');
-      writeln('         |       _        |     |          \___  ()  _ \               |   |      |       _      | /      ');
-      writeln('         |______________________|_____________/  ()  \| |______________|_________________________|/       ');
-      writeln('             ,,            ,,  /             /   ()   \ |             /        ,,       ,,           ,,   ');
-      writeln('    ,,     ,,        ,,   ,,  /             |-.______.-|)            /   ,,        ,,    ,,   ,           ');
-      writeln('        ,,         ,,        /            _    |_||_|    _          /       ,,                  ,,        ');
-      writeln('     ,,      ,,         ,,  /            (@____) || (____@)        /  ,,        ,,       ,,               ');
-      writeln('                           /              \______||______/        /       ,,        ,,             ,,     ');
+      writeln('             /                  /             ___,@              \                    \     \   _   |  ');
+      writeln('|  _     |  |           |      /   ((        /  <                 \     |      |       |     |   | _   ');
+      writeln('      |    /      _  |        /     ))  ,_  /    \  _,             \         |          \     \        ');
+      writeln(' _      _ /       |   _      |     ((    \`/______\`/               |     _       _      \     \  |    ');
+      writeln('     |   |    |      _   |   |   ,_(*).  |;(o\  /o);|               |   _    |            |     \  _   ');
+      writeln('|  _    /        |           |    \___ \ \/\   >  /\/               |             |        \     | _   ');
+      writeln('       /       |     |  _    |        \/\   \ __ /                  |     |    _            \    |   | ');
+      writeln('______|           _          |         \ \___)--(__                 |            _   |       \   |_____');
+      writeln('      |       _        |     |          \___  ()  _ \               |   |      |       _      | /      ');
+      writeln('      |______________________|_____________/  ()  \| |______________|_________________________|/       ');
+      writeln('          ,,            ,,  /             /   ()   \ |             /        ,,       ,,           ,,   ');
+      writeln(' ,,     ,,        ,,   ,,  /             |-.______.-|)            /   ,,        ,,    ,,   ,           ');
+      writeln('     ,,         ,,        /            _    |_||_|    _          /       ,,                  ,,        ');
+      writeln('  ,,      ,,         ,,  /            (@____) || (____@)        /  ,,        ,,       ,,               ');
+      writeln('                        /              \______||______/        /       ,,        ,,             ,,     ');
       END//alive
     else//DEATH
       BEGIN
       display_enemy_stats;
       TextColor(white);
-      writeln('                /                  /             ___,@              \                    \     \   _   | ');
-      writeln('   |  _     |  |           |      /             /  <                 \     |      |       |     |   | _  ');
-      writeln('  _      |    /      _  |        /         ,_  /    \  _,             \         |          \     \       ');
-      writeln('    _      _ /       |   _      |           \`/______\`/               |     _       _      \     \  |   ');
-      writeln('        |   |    |      _   |   |   ,____.  |;|x    x|;|               |   _    |            |     \  _  ');
-      writeln('   |  _    /        |           |    \___ \ \/\   >  /\/               |             |        \     | _   ');
-      writeln('          /       |     |  _    |        \/\   \  o /                  |     |    _            \    |   | ');
-      writeln('_________|           _          |         \ \___)--(__                 |            _   |       \   |_____');
-      writeln('         |       _        |     |          \___  ()  _ \               |   |      |       _      | /      ');
-      writeln('         |______________________|_____________/  ()  \| |______________|_________________________|/       ');
-      writeln('             ,,            ,,  /             /   ()   \ |             /        ,,       ,,           ,,   ');
-      writeln('    ,,     ,,        ,,   ,,  /             |-.______.-|)            /   ,,        ,,    ,,   ,           ');
-      writeln('        ,,         ,,        /            _    |_||_|    _          /       ,,                  ,,        ');
-      writeln('     ,,      ,,         ,,  /            (@____) || (____@)        /  ,,        ,,       ,,               ');
+      writeln('             /                  /             ___,@              \                    \     \   _   |  ');
+      writeln('|  _     |  |           |      /             /  <                 \     |      |       |     |   | _   ');
+      writeln('      |    /      _  |        /         ,_  /    \  _,             \         |          \     \        ');
+      writeln(' _      _ /       |   _      |           \`/______\`/               |     _       _      \     \  |    ');
+      writeln('     |   |    |      _   |   |   ,____.  |;|x    x|;|               |   _    |            |     \  _   ');
+      writeln('|  _    /        |           |    \___ \ \/\   >  /\/               |             |        \     | _   ');
+      writeln('       /       |     |  _    |        \/\   \  o /                  |     |    _            \    |   | ');
+      writeln('______|           _          |         \ \___)--(__                 |            _   |       \   |_____');
+      writeln('      |       _        |     |          \___  ()  _ \               |   |      |       _      | /      ');
+      writeln('      |______________________|_____________/  ()  \| |______________|_________________________|/       ');
+      writeln('          ,,            ,,  /             /   ()   \ |             /        ,,       ,,           ,,   ');
+      writeln(' ,,     ,,        ,,   ,,  /             |-.______.-|)            /   ,,        ,,    ,,   ,           ');
+      writeln('     ,,         ,,        /            _    |_||_|    _          /       ,,                  ,,        ');
+      writeln('  ,,      ,,         ,,  /            (@____) || (____@)        /  ,,        ,,       ,,               ');
       writeln('                           /              \______||______/        /       ,,        ,,             ,,     ');
       END;
     display_hud
@@ -218,44 +225,44 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
 
   PROCEDURE display_fountain;
     BEGIN
+    writeln('-------------------------------------------------------------------------------------------------------');
     case depth of
     0:
       BEGIN
-      writeln('-------------------------------------------------------------------------------------------------------');
       TextColor(white);
-      writeln('         .       .     .     .     .      .       .     .       .                            .         ');
-      writeln('        .       .       .             .      .     .   .    .             .   .     .                  ');
-      writeln('  .     .     .    .     .             .      .  .       .    .    .     .          .           .      .');
-      writeln('      .  .       .           .             .                 .              .          .    .          ');
-        write('        .    .       .          .    .      ');TextColor(LightBlue);write('     .  .  .   ');TextColor(white);writeln('        .          .      .        .     . ');textcolor(white);
-        write('        .          .          .             ');TextColor(LightBlue);write('    . . : . .  ');TextColor(white);writeln('             .      .        .     . ');textcolor(white);
-        write('        .       .          .    .             _');TextColor(LightBlue);write('.');TextColor(white);write('___');TextColor(LightBlue);write('.:.');TextColor(white);write('___');TextColor(LightBlue);write('.');TextColor(white);writeln('_     .        .           .            . ');textcolor(white);
-      writeln('                                             (_____________)                                           ');
-      writeln('_________________________________________________(     )_______________________________________________');
-      writeln('   ,,         ,,       ,,             ,,     /   _)   (_   \     ,,                 ,,           ,,    ');
-      writeln('        ,,          ,,           ,,         |   (_______)   |          ,,                    ,,         ');
-      writeln(' ,,             ,,          ,,          ,,   \             /              ,,           ,,            ,,');
-      writeln('                        ,,          ,,        |           |       ,,            ,,               ,,    ');
-      writeln('        ,,                                    |           |                                   ,,       ');
+      writeln('   .    .          .          .    .       .    .                   .                 .        .     ');
+      writeln('      .      .                 .                             .                       .              .');
+      writeln('                 .                      .                       .         .                 .        ');
+      writeln('      .                  .                 .               .                            .            ');
+      writeln('   .             .    .           .     .           .          .      .        .     .               ');
+      writeln('        .    .                  .    .           .  .  .           .          .               .     .');
+      writeln('        .          .                            . . : . .               .      .        .     .      ')
+      writeln('        .       .          .    .             _.___.:.___._     .        .           .            .  ')
+      writeln('                                             (_____________)                                         ');
+      writeln('_________________________________________________(     )_____________________________________________');
+      writeln('   ,,         ,,       ,,             ,,     /   _)   (_   \     ,,                 ,,           ,,  ');
+      writeln('        ,,          ,,           ,,         |   (_______)   |          ,,                    ,,      ');
+      writeln(' ,,             ,,          ,,          ,,   \             /              ,,           ,,            ');
+      writeln('                        ,,          ,,        |           |       ,,            ,,               ,,  ');
+      writeln('        ,,                                    |           |                                   ,,     ');
       END;
     1:
       BEGIN
-      writeln('-------------------------------------------------------------------------------------------------------');
       TextColor(brown);
-      writeln('                                                                                                       ');
-      writeln('                                                                                                       ');
-      writeln('                                     _________________________________                                 ');
-      writeln('                                    |                                 |                                ');
-        write('                                    |       ');TextColor(LightBlue);write('     .  .  .   ');TextColor(brown);writeln('           |');
-        write('                                    |       ');TextColor(LightBlue);write('    . . : . .  ');TextColor(brown);writeln('           |');
-        write('                                    |         _');TextColor(LightBlue);write('.');TextColor(brown);write('___');TextColor(LightBlue);write('.:.');TextColor(brown);write('___');TextColor(LightBlue);write('.');TextColor(brown);writeln('_           |');textcolor(brown);
-      writeln('                                    |        (_____________)          |                                ');
-      writeln('____________________________________|____________(     )______________|________________________________');
-      writeln('                                             /   _)   (_   \                                           ');
-      writeln('                                            |   (_______)   |                                          ');
-      writeln('                                             \             /           ');
-      writeln('                                              |           |                                             ');
-      writeln('                                              |           |                                            ');
+      writeln('                                                                                                     ');
+      writeln('                                                                                                     ');
+      writeln('                                     _________________________________                               ');
+      writeln('                                    |                                 |                              ');
+      writeln('                                    |            .  .  .              |                              ');
+      writeln('                                    |           . . : . .             |                              ');
+      writeln('                                    |         _.___.:.___._           |                              ');
+      writeln('                                    |        (_____________)          |                              ');
+      writeln('____________________________________|____________(     )______________|______________________________');
+      writeln('                                             /   _)   (_   \                                         ');
+      writeln('                                            |   (_______)   |                                        ');
+      writeln('                                             \             /                                         ');
+      writeln('                                              |           |                                          ');
+      writeln('                                              |           |                                          ');
       END;
       END;
     display_hud
@@ -285,26 +292,22 @@ PROCEDURE DISPLAY;//<--CAMBIAR PARA GENERALIZAR (case que decida display segun r
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
-    writeln('Explored: '+inttostr(explored)+'% of Depth: ',depth);
+    writeln('Explored: '+inttostr(explored)+'% of Depth: ',depth+'                                                  ');
     writeln('-------------------------------------------------------------------------------------------------------');
     END;
   BEGIN
     ClrScr;
-    If CompareText(room,'Logo') = 0 then
+    if CompareText(room,'Logo') = 0 then
       display_logo;
-    If CompareText(room,'main_menu') = 0 then
+    else if CompareText(room,'main_menu') = 0 then
       display_main_menu;
-
-    If CompareText(room,'fight') = 0 then
+    else if CompareText(room,'fight') = 0 then
       display_fight;
-    If CompareText(room,'fountain') = 0 then
+    else if CompareText(room,'fountain') = 0 then
       display_fountain;
-
-    If CompareText(room,'boss') = 0 then
+    else if CompareText(room,'boss') = 0 then
       display_boss;
-
-
-    If CompareText(room,'game_over') = 0 then
+    else if CompareText(room,'game_over') = 0 then
       display_game_over;
     END;
 
@@ -487,7 +490,7 @@ PROCEDURE fight(area_id:integer);
           BEGIN
           use;
           END;
-        else//inst invalda
+        else//invalid
           BEGIN
           write_until_Keypressed(error1)
           END
@@ -517,7 +520,7 @@ PROCEDURE fight_boss(area_id:integer);
     case area_id of
       0:boss_set('Angry Elf',50,5,100,175);
       else
-        write_until_Keypressed('ERROR: zona no existete.')
+        write_until_Keypressed('ERROR: non existent zone.')
       END
     END;
 
@@ -543,13 +546,13 @@ PROCEDURE fight_boss(area_id:integer);
           player_normal_atk;
           enemy_normal_atk
           END;
-        'r':write_until_Keypressed('You sense that you won''t be able to escape you don''t even try.');
+        'r':write_until_Keypressed('You sense that you won''t be able to escape, so you don''t even try.');
         'q':p.hp:=0;
         'i':BEGIN
           if hud_at = inventory then hud_at:=main else hud_at:=inventory;
           DISPLAY;
           END;
-        else//inst invalda
+        else//invalid
           write_until_Keypressed(error1)
         END;
       until (e.hp < 1) OR (p.hp < 1);
@@ -588,6 +591,7 @@ PROCEDURE shop;
     END;
   BEGIN
     write_until_Keypressed('You found a shop!');
+    write_until_Keypressed('p -> HP potion - 20 gold | s-> Dull knife- 50 gold | x to leave');
     REPEAT
       imp:=lowercase(ReadKey);
       case imp of
@@ -605,8 +609,9 @@ PROCEDURE shop;
           if hud_at = inventory then hud_at:=main else hud_at:=inventory;
           DISPLAY;
           END;
-        else//inst invalda
+        else//invalid
           write_until_Keypressed(error1)
+          write_until_Keypressed('p -> HP potion - 20 gold | s-> Dull knife- 50 gold | x to leave');
         END;
       UNTIl p.hp<1
   END;
@@ -643,7 +648,6 @@ PROCEDURE lvlup;
 
 //------------------------------->MAIN<-----------------------------------------
 BEGIN
-
   BEGIN//inicializacion
     RANDOMIZE;
     TextColor(LightBlue);
@@ -670,7 +674,7 @@ BEGIN
     REPEAT
       DISPLAY;
       imp:=lowercase(lowercase(ReadKey));
-      if imp <> 's' then //mesaje de error
+      if imp <> 's' then //error msg
         BEGIN
         write_until_Keypressed(error1)
         END
@@ -680,7 +684,7 @@ BEGIN
     REPEAT
       DISPLAY;
       imp:=lowercase(ReadKey);
-      case imp of//opciones y mesaje de error
+      case imp of//options and error msg
         'p':;
         'h':write_until_Keypressed('Inside the game: a-attack / r-run / q-suicide.');
         char(27):exit
@@ -698,7 +702,7 @@ BEGIN
       readln(p.name)
       END;//valid name pls.
 
-  repeat//elegir evento
+  repeat//<---------------------------------------EVENTS
     if p.exp >= exp_max THEN lvlup;
     if (explored >= 100) OR ((explored > (45 + round(random*15) +more)) AND ((y_or_n_boss)))  then
     BEGIN
@@ -708,10 +712,10 @@ BEGIN
     else
     BEGIN
       wherenext:=round(random*100);
-      if between(0,wherenext,90) THEN fight(depth);
-      if between(90,wherenext,100) THEN fountain;
-      shop;
-      explored:= explored + 4 + round(random);//<-----------------------------//<-------------------------------------------------------------------------ELEGIR EVENTOS
+      if      between(0 ,wherenext,85 ) THEN fight(depth);
+      else if between(85,wherenext,95 ) THEN fountain;
+      else if between(95,wherenext,100) THEN shop;
+      explored:= explored + 4 + round(random);
     END;
     until p.hp< 1;
 
