@@ -46,7 +46,8 @@ PROCEDURE DISPLAY;
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
-    writeln('    _____                                        ___                  _____       _____    _____      ');
+    writeln('                                                                                                       ');
+    writeln('    _____                                        ___                  _____       _____    _____       ');
     writeln('   /\  __`\                                     /\_ \                /\  _ `\    /\  _ `\ /\  _ `\     ');
     writeln('   \ \ \L\ \   __       ____    ___      __     \//\ \               \ \ \L\ \   \ \ \L\ \\ \ \ \_\    ');
     writeln('    \ \ ,__/ /,__`\    /,,__\  /,___\  /,__`\     \ \ \               \ \ ,  /    \ \ ,__/ \ \ \L_ \   ');
@@ -56,7 +57,10 @@ PROCEDURE DISPLAY;
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
+    writeln('                                                                                                       ');
+    writeln('                                                                                                       ');
     writeln('                                        Press "s" to start                                             ');
+    writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
@@ -81,13 +85,17 @@ PROCEDURE DISPLAY;
     writeln('       \/_/  \/__/\/_/ \/___/  \/____/ \/__/\/_/   \/____/               \/_/\/ /    \/_/     \/___/   ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
+    writeln('                                                                                                       ');
+    writeln('                                                                                                       ');
     writeln('                 Press:                                                                                ');
+    writeln('                                                                                                       ');
+    writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                   p - To play        h - For help          esc - To quit                              ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
-    writeln('-------------------------------------------------------------------------------------------------------');
+    writeln('-------------------------------------------------------------------------------------------------------');//27
     END;
 
   //--------------------------------HUD stuff---------------------------------//
@@ -101,7 +109,7 @@ PROCEDURE DISPLAY;
       _write_(si1,'Atk: '+ inttostr(p.atk),sf1);                       writeln;
       writeln('');
       _write_(si1,'Gold: '+inttostr(p.gold),70);         write('Explored: ');   _write_(0,inttostr(explored)+' %',6); writeln(' Depth: ', depth);
-      writeln('-------------------------------------------------------------------------------------------------------');
+      writeln('-------------------------------------------------------------------------------------------------------');//7
       END;
     PROCEDURE display_hud_inv;
       BEGIN
@@ -112,7 +120,7 @@ PROCEDURE DISPLAY;
                                _write_(15,'5. '+inv[5],20);  _write_(0,'6. '+inv[6],30);writeln;
                                _write_(15,'7. '+inv[7],20);  _write_(0,'8. '+inv[8],30);writeln;
       _write_(si1,'Gold: '+inttostr(p.gold),70); write('Explored: ');   _write_(0,inttostr(explored)+' %',6); writeln(' Depth: ', depth);
-      writeln('-------------------------------------------------------------------------------------------------------');
+      writeln('-------------------------------------------------------------------------------------------------------');//7
       END;
     BEGIN
     case hud_at of
@@ -128,7 +136,7 @@ PROCEDURE DISPLAY;
     _write_(si1,e.name,sf1);                   writeln();
     _write_(si1,'HP: '+ inttostr(e.hp)+'/'+inttostr(e.hp_max),sf1);writeln();
     _write_(si1,'Atk: '+ inttostr(e.atk),sf1);writeln();
-    writeln('--------------------------------------------------------------------------------------------------------');
+    writeln('--------------------------------------------------------------------------------------------------------');//5
     END;
 
   //--------------------------------EVENTS------------------------------------//
@@ -153,7 +161,7 @@ PROCEDURE DISPLAY;
       writeln('_______|%|___|%|__|%|___|%|_____|%|___________________________|%|___|%|_|%|___|%|____|%|_____|%|_______');
       writeln('  ,,   |%|  .:%:. |%|  .:%:.    |%|  ,,      /     /      ,,  |%|  .:%:.|%|   |%|   .:%:.    |%|     ,,');
       writeln(',,    .:%:.   ,, .:%:.     ,,  .:%:.    ,,  /     /   ,,     .:%:.  ,, .:%:.   ,,   ,,      .:%:. ,,   ');
-      writeln('   ,,     ,,    ,,     ,,          ,,      /     / ,,      ,,     ,,          ,,           ,,         ,');
+      writeln('   ,,     ,,    ,,     ,,          ,,      /     / ,,      ,,     ,,          ,,           ,,         ,');//15
       END;
     1:
       BEGIN
@@ -236,8 +244,8 @@ PROCEDURE DISPLAY;
       writeln('      .                  .                 .               .                            .            ');
       writeln('   .             .    .           .     .           .          .      .        .     .               ');
       writeln('        .    .                  .    .           .  .  .           .          .               .     .');
-      writeln('        .          .                            . . : . .               .      .        .     .      ')
-      writeln('        .       .          .    .             _.___.:.___._     .        .           .            .  ')
+      writeln('        .          .                            . . : . .               .      .        .     .      ');
+      writeln('        .       .          .    .             _.___.:.___._     .        .           .            .  ');
       writeln('                                             (_____________)                                         ');
       writeln('_________________________________________________(     )_____________________________________________');
       writeln('   ,,         ,,       ,,             ,,     /   _)   (_   \     ,,                 ,,           ,,  ');
@@ -292,23 +300,23 @@ PROCEDURE DISPLAY;
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
     writeln('                                                                                                       ');
-    writeln('Explored: '+inttostr(explored)+'% of Depth: ',depth+'                                                  ');
+    writeln('Explored: '+inttostr(explored)+'% of Depth: '+inttostr(depth)+'                                        ');
     writeln('-------------------------------------------------------------------------------------------------------');
     END;
   BEGIN
     ClrScr;
     if CompareText(room,'Logo') = 0 then
-      display_logo;
+      display_logo
     else if CompareText(room,'main_menu') = 0 then
-      display_main_menu;
+      display_main_menu
     else if CompareText(room,'fight') = 0 then
-      display_fight;
+      display_fight
     else if CompareText(room,'fountain') = 0 then
-      display_fountain;
+      display_fountain
     else if CompareText(room,'boss') = 0 then
-      display_boss;
+      display_boss
     else if CompareText(room,'game_over') = 0 then
-      display_game_over;
+      display_game_over
     END;
 
 //---------------------------->UTILILES<-----------------------------------------
@@ -610,8 +618,8 @@ PROCEDURE shop;
           DISPLAY;
           END;
         else//invalid
-          write_until_Keypressed(error1)
-          write_until_Keypressed('p -> HP potion - 20 gold | s-> Dull knife- 50 gold | x to leave');
+          write_until_Keypressed(error1);
+          write_until_Keypressed('p -> HP potion - 20 gold | s-> Dull knife- 50 gold | x to leave')
         END;
       UNTIl p.hp<1
   END;
@@ -712,14 +720,14 @@ BEGIN
     else
     BEGIN
       wherenext:=round(random*100);
-      if      between(0 ,wherenext,85 ) THEN fight(depth);
-      else if between(85,wherenext,95 ) THEN fountain;
+      if      between(0 ,wherenext,85 ) THEN fight(depth)
+      else if between(85,wherenext,95 ) THEN fountain
       else if between(95,wherenext,100) THEN shop;
-      explored:= explored + 4 + round(random);
+      explored:= explored + 4 + round(random)
     END;
     until p.hp< 1;
 
-  room:='game_over';
+    room:='game_over';
     DISPLAY;
     repeat until keypressed
     END.//Main
