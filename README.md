@@ -1,6 +1,11 @@
 # pascalRPG
 A simple pascal rpg game
 
+![](https://i.imgur.com/9aeOnwR.png)
+![](https://i.imgur.com/ntcnMA9.png)
+![](https://i.imgur.com/dZDZm5l.png)
+![](https://i.imgur.com/SVwu1MB.png)
+
 ## Prerequisites
 * Unix based OS
 
