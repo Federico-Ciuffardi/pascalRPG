@@ -25,7 +25,7 @@ A simple pascal rpg game
 ```
 
 ## Versioning
-Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [releases](https://github.com/Federico-Ciuffardi/JTetris/releases) 
+Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [releases](https://github.com/Federico-Ciuffardi/pascalRPG/releases) 
 
 ## Authors
 * Federico Ciuffardi
